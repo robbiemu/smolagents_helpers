@@ -1,37 +1,61 @@
-# smolagents-helpers
+smolagents-helpers
+--
 
-Este projeto fornece ferramentas auxiliares para integração com a framework smolagents. Atualmente, o repositório contém os seguintes módulos dentro do diretório `src/smolagents_helpers`:
+Ferramentas auxiliares para integração com a framework [`smolagents`](https://github.com/robbiemu/smolagents).  
+Fornece interfaces para APIs (Brave Search) e modelos (Ollama) em projetos de agentes.
 
-- **brave_search_tool.py**  
-  Implementa a classe `BraveSearchTool`, que integra a API de busca do Brave Search. Inclui métodos para carregar e configurar a chave da API e para realizar buscas via HTTP, retornando resultados formatados.
+### Módulos disponíveis (`src/smolagents_helpers/`):
+| Módulo               | Descrição                                                                 |
+|----------------------|---------------------------------------------------------------------------|
+| `brave_search_tool`  | Integração com a API do [Brave Search](https://brave.com/search/api/).   |
+| `ollama_model`       | Classe wrapper para interação síncrona/assíncrona com modelos Ollama.    |
 
-- **ollama_model.py**  
-  Contém a classe `OllamaModel`, que facilita a interação com o modelo do Ollama tanto de forma síncrona quanto assíncrona. Possui também a definição da classe `Message`, usada para padronizar as respostas dos modelos.
+---
 
-## Instalação
+## 🔧 Instalação
 
-Certifique-se de ter o Python (>= 3.13) instalado. Instale as dependências utilizando:
-
+### 1. Para uso em projetos
+Adicione como dependência via **pip**:
 ```bash
-pip install -e .
+pip install git+https://github.com/robbiemu/smolagents_helpers.git
 ```
-
-## Uso com UV
-
-Para utilizar este pacote diretamente em um projeto que utiliza o UV, adicione-o como dependência via URL rodando no terminal:
-
+Ou com **UV**:
 ```bash
 uv add https://github.com/robbiemu/smolagents_helpers.git
 ```
 
-Após a adição, você poderá importar os módulos normalmente em seu código:
-
-```python
-from smolagents_helpers.ollama_model import OllamaModel
+### 2. Para desenvolvimento local
+Clone e instale em modo editável:
+```bash
+git clone https://github.com/robbiemu/smolagents_helpers.git
+cd smolagents_helpers
+pip install -e .[dev]  # Instala dependências de desenvolvimento
 ```
 
-Consulte a [documentação do UV](https://github.com/robbiemu/uv) para mais detalhes sobre gerenciamento de dependências e configurações.
+---
 
-## Licença
+## 🚀 Uso Rápido
 
-Este projeto está licenciado sob a LGPL. Para mais detalhes, consulte o arquivo [LICENSE](LICENSE).
+### Brave Search
+```python
+from smolagents_helpers.brave_search_tool import BraveSearchTool
+import os
+
+brave_api_key = os.getenv("BRAVE_API_KEY")
+search_tool = BraveSearchTool(api_key=brave_api_key)
+
+results = search_tool.query("Python smolagents", count=5)
+```
+
+### Ollama
+```python
+from smolagents_helpers.ollama_model import OllamaModel
+
+model = OllamaModel(model_name="llama3")
+response = model.generate("Explique RLHF em 1 parágrafo")
+```
+
+---
+
+## 📜 Licença
+LGPL-3.0 - Consulte [LICENSE](LICENSE) para detalhes.
