@@ -1,5 +1,7 @@
 smolagents-helpers
 --
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/robbiemu/smolagents_helpers/blob/master/README.en.md)
+
 
 Ferramentas auxiliares para integração com a framework [`smolagents`](https://github.com/robbiemu/smolagents).  
 Fornece interfaces para APIs (Brave Search) e modelos (Ollama) em projetos de agentes.
