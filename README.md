@@ -3,14 +3,14 @@ smolagents-helpers
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/robbiemu/smolagents_helpers/blob/master/README.en.md)
 
 
-Ferramentas auxiliares para integração com a framework [`smolagents`](https://github.com/robbiemu/smolagents).  
+Ferramentas auxiliares para integração com a framework [`smolagents`](https://github.com/huggingface/smolagents).  
 Fornece interfaces para APIs (Brave Search) e modelos (Ollama) em projetos de agentes.
 
 ### Módulos disponíveis (`src/smolagents_helpers/`):
 | Módulo               | Descrição                                                                 |
 |----------------------|---------------------------------------------------------------------------|
 | `brave_search_tool`  | Integração com a API do [Brave Search](https://brave.com/search/api/).   |
-| `ollama_model`       | Classe wrapper para interação síncrona/assíncrona com modelos Ollama.    |
+| `ollama_model`       | Classe wrapper para interação síncrona/assíncrona com modelos [Ollama](https://github.com/ollama/ollama).    |
 
 ---
 

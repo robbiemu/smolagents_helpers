@@ -1,14 +1,14 @@
 smolagents-helpers
 --
 
-Helper tools for integration with the [`smolagents`](https://github.com/robbiemu/smolagents) framework.  
+Helper tools for integration with the [`smolagents`](https://github.com/huggingface/smolagents) framework.  
 Provides interfaces for APIs (Brave Search) and models (Ollama) in agent projects.
 
 ### Available modules (`src/smolagents_helpers/`):
 | Module               | Description                                                              |
 |----------------------|--------------------------------------------------------------------------|
 | `brave_search_tool`  | Integration with the [Brave Search](https://brave.com/search/api/) API. |
-| `ollama_model`       | Wrapper class for synchronous/asynchronous interaction with Ollama models. |
+| `ollama_model`       | Wrapper class for synchronous/asynchronous interaction with [Ollama](https://github.com/ollama/ollama) models. |
 
 ---
 
