@@ -1,0 +1,4 @@
+pytest
+pytest-mock  # For mocking
+pytest-asyncio  # If testing async code
+pytest-cov  # For coverage reports (optional)

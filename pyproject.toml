@@ -19,3 +19,12 @@ smolagents-helpers = "smolagents_helpers:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+addopts = "-m 'not live'"
+asyncio_mode = "auto"
+asyncio_fixture_scope = "function" 
+markers = [
+    "live: mark tests that hit live APIs (run manually)",
+    "integration: integration tests"
+]
