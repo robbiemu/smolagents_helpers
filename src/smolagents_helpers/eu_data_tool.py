@@ -3,7 +3,7 @@ import hashlib
 import json
 import logging
 import requests
-import re  
+import re
 import time
 from typing import List, Dict, Optional, Any
 
@@ -21,7 +21,7 @@ class EUDataTool:
 
     SPARQL_ENDPOINT = "https://data.europa.eu/sparql"
     REST_API_BASE = "https://data.europa.eu/api/hub/repo/datasets/"
-    DEFAULT_CACHE_TTL = 86400  
+    DEFAULT_CACHE_TTL = 86400
     REQUEST_TIMEOUT = 120
     REQUEST_DELAY = 0.5  # Seconds between requests to avoid rate limiting
 
@@ -382,9 +382,9 @@ class EUDataTool:
 
                     if dist:
                         if ds_uri not in distributions_by_dataset:
-                            distributions_by_dataset[
-                                ds_uri
-                            ] = {}  # Use dict keyed by dist URI
+                            distributions_by_dataset[ds_uri] = (
+                                {}
+                            )  # Use dict keyed by dist URI
                         # Store distribution keyed by its URI to prevent duplicates
                         if dist_uri not in distributions_by_dataset[ds_uri]:
                             distributions_by_dataset[ds_uri][dist_uri] = dist
@@ -740,9 +740,7 @@ class EUDataTool:
         self._ensure_request_delay()
         try:
             response = requests.get(
-                api_url, 
-                headers=self.headers, 
-                timeout=self.REQUEST_TIMEOUT 
+                api_url, headers=self.headers, timeout=self.REQUEST_TIMEOUT
             )
             response.raise_for_status()
             json_ld_data = response.json()
@@ -846,9 +844,9 @@ class EUDataTool:
                     )
                 else:
                     metadata["publisher"] = None  # Node not found
-                    metadata[
-                        "publisher_uri"
-                    ] = publisher_ref  # Store URI if name unknown
+                    metadata["publisher_uri"] = (
+                        publisher_ref  # Store URI if name unknown
+                    )
             elif isinstance(publisher_ref, str):  # Simple string name
                 metadata["publisher"] = publisher_ref
             elif isinstance(publisher_ref, dict):  # Embedded publisher object
