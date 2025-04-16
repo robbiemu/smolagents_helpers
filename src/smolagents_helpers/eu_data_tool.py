@@ -186,15 +186,15 @@ class EUDataTool:
         date_from: Optional[str] = None,  # YYYY-MM-DD
         date_to: Optional[str] = None,  # YYYY-MM-DD
         language: Optional[str] = None,  # ISO 639-1 code (e.g., 'en')
-        sort_by: str = "relevance",  # Note: SPARQL doesn't have built-in 'relevance' sorting. 'date' or 'title' are supported.
-        sort_order: str = "desc",  # Similarly, SPARQL ORDER BY applies to query variables
+        sort_by: str = "date",  # Note: in SPARQL 'date' or 'title' are supported.
+        sort_order: str = "desc",  # SPARQL ORDER BY applies to query variables
         preferred_formats: Optional[List[str]] = None,  # Used post-query
         limit: int = 10,
         offset: int = 0,
     ) -> Dict[str, Any]:
         """
         Search for datasets using SPARQL, performs initial search then enhances with distribution details.
-        NOTE: Keyword search now *only* matches exact dcat:keyword values (case-insensitive) for reliability.
+        NOTE: Keyword search *only* matches exact dcat:keyword values (case-insensitive) for reliability.
               SPARQL doesn't have built-in 'relevance' sorting. Sorting by 'date' or 'title' is possible.
         """
         if preferred_formats is None:
@@ -492,7 +492,7 @@ class EUDataTool:
         # Returning only the results found in the current page.
         return {"results": enhanced_results}
 
-    # --- New Metadata Retrieval Logic (REST first, SPARQL fallback) ---
+    # --- Metadata Retrieval Logic (REST first, SPARQL fallback) ---
 
     def get_dataset_metadata(
         self, dataset_uri: str, force_refresh: bool = False, locale: str = "en"
